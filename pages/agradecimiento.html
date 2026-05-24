@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSIX LAB - Acceso Confirmado</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* Evita que aparezcan barras de scroll si la imagen es enorme */
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            z-index: -1;
+            
+            /* 👇 CAMBIÁ ACÁ EL NOMBRE DE TU IMAGEN REAL 👇 */
+            background-image: url('/img/png\ isotipo\ positivo.png'); 
+            
+            /* Lo mantiene centrado */
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* LA CLAVE: 'cover' hace que la imagen escale hasta llenar el 100% del fondo, 
+               tanto a lo ancho como a lo alto. */
+            background-size: cover; 
+            
+            /* Opacidad sutil */
+            opacity: 0.1; 
+            pointer-events: none;
+        }
+
+        /* Ajustes para Celular: si en celu querés que el logo se vea aún MÁS grande y estirado, 
+           podemos forzar su tamaño con un porcentaje mayor a 100% */
+        @media (max-width: 768px) {
+            body::before {
+                /* Si con 'cover' no te convence en celular, borrá 'cover' arriba 
+                   y descomentá la línea de abajo para forzar un zoom gigante: */
+                /* background-size: 150vw auto; */ 
+                opacity: 0.08; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="side-text left">ACCESO EXCLUSIVO.</div>
+    <div class="side-text right">GSIX LAB.</div>
+
+    <main>
+        <section class="hero" style="border-bottom: none; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 0; padding-bottom: 0;">
+            <p class="subtitle">> ACCESO: CONFIRMADO</p>
+            <h1>YA SOS<br>PARTE.</h1>
+            <p class="description">Bienvenido a la comunidad. El lugar donde la estética y la cultura se cruzan.<br>Tu llave de acceso y tu cupón te esperan en tu correo.</p>
+            
+            <a href="../index.html" style="background: var(--text-main); color: var(--bg-color); padding: 15px 30px; text-decoration: none; font-family: inherit; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; transition: background 0.3s ease; margin-top: 20px; display: inline-block;">
+                &larr; VOLVER AL INICIO
+            </a>
+        </section>
+    </main>
+</body>
+</html>

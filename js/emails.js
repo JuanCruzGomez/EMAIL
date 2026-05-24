@@ -15,33 +15,27 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append('fields[email]', email);
 
         try {
-            // Enviamos la petición a MailerLite
             const response = await fetch(mailerLiteUrl, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // Necesario para evitar bloqueos de seguridad (CORS) con MailerLite
+                mode: 'no-cors'
             });
 
-            // Al usar 'no-cors', el navegador no nos permite leer la respuesta exacta, 
-            // pero si la petición no va al "catch", significa que se envió correctamente.
-            alert("¡Gracias por unirte al GSIX LAB! Tu cupón está en camino.");
-            form.reset();
+            // En lugar de alert() y form.reset(), hacemos la redirección
+            window.location.href = "pages/agradecimiento.html";
 
-        } catch (error) {
+        } catch (error)  {
             console.error("Error al enviar los datos:", error);
             alert("Hubo un problema al registrar tu email. Por favor, intentá de nuevo.");
         }
     });
 
-    // --- 2. Lógica del Contador (Countdown) ---
-    // (A partir de acá dejá tu código tal cual lo tenías...)
+   // --- 2. Lógica del Contador (Countdown) ---
+    
+    // 👇 ESTO ES LO ÚNICO QUE CAMBIA (La fecha fija con zona horaria de Argentina)
+    const dropDate = new Date("June 14, 2026 20:00:00 GMT-0300"); 
 
-    // --- 2. Lógica del Contador (Countdown) ---
-    // Configuramos la fecha límite sumando 5 días a la fecha actual para el ejemplo
-    const dropDate = new Date();
-    dropDate.setDate(dropDate.getDate() + 5);
-    dropDate.setHours(dropDate.getHours() + 12);
-
+    // 👇 TODO ESTO QUEDA EXACTAMENTE IGUAL A COMO LO TENÍAS
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
