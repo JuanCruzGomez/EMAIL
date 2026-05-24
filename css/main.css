@@ -1,0 +1,286 @@
+/* Variables & Reset */
+:root {
+    --bg-color: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    --accent: #ffffff;
+    --border-color: #222222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Texture/Lines (Optional subtle effect) */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Typography */
+h1, h2, h3, .logo, .number {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Side Texts */
+.side-text {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    z-index: 10;
+}
+.side-text.left {
+    left: 20px;
+    transform: translateY(-50%) rotate(180deg);
+}
+.side-text.right {
+    right: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+}
+.logo {
+    /* Eliminamos los estilos de texto anteriores */
+    display: flex;       /* Centra la imagen verticalmente en el header */
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 38px; /* Un tamaño sutil y elegante */
+    width: auto;
+    display: block;
+    /* Cero bordes, cero radios, cero object-fit */
+}
+.social-icon {
+    cursor: pointer;
+}
+
+/* Main Content Container */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--border-color);
+}
+.subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+.hero h1 {
+    font-size: 6rem;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+.categories {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+.description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Form */
+.capture-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+.capture-form input {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 15px 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+}
+.capture-form button {
+    background: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    padding: 0 30px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.capture-form button:hover {
+    background: #cccccc;
+}
+.secure-text {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* Cards Section */
+.cards-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+.section-title {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.card {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px 20px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.card p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #ccc;
+}
+
+/* Countdown Section */
+.countdown-section {
+    padding: 60px 0;
+    text-align: center;
+}
+.countdown-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+.side-info p {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-align: left;
+    line-height: 1.8;
+}
+.side-info.right-info p {
+    text-align: right;
+}
+.highlight {
+    color: var(--text-main);
+}
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.time-block {
+    display: flex;
+    flex-direction: column;
+}
+.time-block .number {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+.time-block .label {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+.colon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    text-align: center;
+}
+.footer-links {
+    margin-bottom: 20px;
+}
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--text-main);
+}
+.copyright {
+    font-size: 0.6rem;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 4rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .countdown-container { flex-direction: column; gap: 40px; }
+    .side-info p { text-align: center; }
+    .side-text { display: none; }
+    .capture-form { flex-direction: column; }
+    .capture-form button { padding: 15px; }
+}
