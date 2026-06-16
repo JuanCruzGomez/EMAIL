@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
    // --- 2. Lógica del Contador (Countdown) ---
     
     // 👇 ESTO ES LO ÚNICO QUE CAMBIA (La fecha fija con zona horaria de Argentina)
-    const dropDate = new Date("June 14, 2026 20:00:00 GMT-0300"); 
+    const dropDate = new Date("June 28, 2026 20:00:00 GMT-0300"); 
 
     // 👇 TODO ESTO QUEDA EXACTAMENTE IGUAL A COMO LO TENÍAS
     const daysEl = document.getElementById('days');
